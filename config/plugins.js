@@ -11,5 +11,19 @@ module.exports = ({ env }) => ({
         testAddress: 'thetriplethree@innvortex.com',
       },
     },
-  }
+  },
+  'qrcode-generator': {
+    enabled: true,
+    config: {
+      contentTypes: [
+        {
+          uid: 'api::cartel.cartel',
+          targetField: 'slug',
+          frontend: {
+            basePath: '/cartels',
+          },
+        },
+      ],
+    },
+  },
 });
