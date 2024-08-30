@@ -13,18 +13,18 @@ module.exports = ({ env }) => ({
       },
     },
   },
-  'qrcode-generator': {
-    enabled: true,
-    config: {
-      contentTypes: [
-        {
-          uid: 'api::cartel.cartel',
-          targetField: 'slug',
-          frontend: {
-            basePath: '/cartels',
-          },
-        },
-      ],
-    },
-  },
+  // 'qrcode-generator': {
+  //   enabled: true,
+  //   config: {
+  //     contentTypes: [
+  //       {
+  //         uid: 'api::cartel.cartel',
+  //         targetField: 'slug',
+  //         frontend: {
+  //           basePath: '/cartels',
+  //         },
+  //       },
+  //     ],
+  //   },
+  // },
 });
