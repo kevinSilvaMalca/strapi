@@ -22,9 +22,9 @@
       "type": "string"
     },
     "numberOfPeople": {
-      "type": "integer"
+      "type": "biginteger"
     },
-    "date": {
+    "Date": {
       "type": "datetime"
     }
   }
