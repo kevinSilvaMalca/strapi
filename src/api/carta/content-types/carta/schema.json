@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cartas",
+  "info": {
+    "singularName": "carta",
+    "pluralName": "cartas",
+    "displayName": "carta"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

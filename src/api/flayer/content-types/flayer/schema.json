@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "flayers",
+  "info": {
+    "singularName": "flayer",
+    "pluralName": "flayers",
+    "displayName": "flayers",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
