@@ -39,6 +39,7 @@ module.exports = ({ env }) => ({
               height: 50, // Altura del logo
               excavate: true, // Excavación del fondo para el logo
             },
+          }
         },
       ],
     },
