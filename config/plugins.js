@@ -18,7 +18,7 @@ module.exports = ({ env }) => ({
     config: {
       contentTypes: [
         {
-          uid: 'api::cartas.cartas',
+          uid: 'api::carta.carta',
           targetField: 'slug',
           frontend: {
             basePath: '/cartas',
