@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * carta router
+ * generateqr router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::carta.carta');
+module.exports = createCoreRouter('api::generateqr.generateqr');

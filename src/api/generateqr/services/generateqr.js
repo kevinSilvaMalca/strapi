@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * carta service
+ * generateqr service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::carta.carta');
+module.exports = createCoreService('api::generateqr.generateqr');

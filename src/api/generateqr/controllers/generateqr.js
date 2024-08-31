@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * carta controller
+ * generateqr controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::carta.carta');
+module.exports = createCoreController('api::generateqr.generateqr');

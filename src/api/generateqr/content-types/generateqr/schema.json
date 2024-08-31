@@ -1,17 +1,17 @@
 {
   "kind": "collectionType",
-  "collectionName": "cartas",
+  "collectionName": "generateqrs",
   "info": {
-    "singularName": "carta",
-    "pluralName": "cartas",
-    "displayName": "carta"
+    "singularName": "generateqr",
+    "pluralName": "generateqrs",
+    "displayName": "generateqr"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "url": {
       "type": "string"
     }
   }
