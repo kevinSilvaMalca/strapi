@@ -1,4 +1,4 @@
-const { generateQRWithLogo } = require("../src/api/generateqr/generateqr");
+const { generateQRWithLogo } = require("../src/controllersUpdates/generateqr/generateqr");
 module.exports = ({ env }) => ({
   email: {
     config: {
