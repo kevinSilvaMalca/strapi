@@ -9,15 +9,25 @@ const generateQRWithLogo = async (text, logoPath) => {
     console.log(logoPath);
 
     // Carga el QR y el logo en Jimp
-    const qrImage = await Jimp.read(Buffer.from(qrData.split(",")[1], "base64"));
-    const logo = await Jimp.read(logoPath);
+    const qrImage = await Jimp.read(
+      Buffer.from(qrData.split(",")[1], "base64")
+    );
+    const logo = await Jimp.read(logoPath).catch((err) => {
+      throw new Error(`Failed to load logo from ${logoPath}: ${err.message}`);
+    });
 
     // Redimensiona el logo para que sea más pequeño que el QR
     const logoMaxSize = qrImage.bitmap.width / 4;
-    logo.resize(logoMaxSize, Jimp.AUTO);
+    if (logo.bitmap.width > logoMaxSize || logo.bitmap.height > logoMaxSize) {
+      logo.resize(logoMaxSize, Jimp.AUTO);
+    }
 
     // Crear un fondo blanco para el logo
-    const whiteBackground = new Jimp(logo.bitmap.width, logo.bitmap.height, 0xffffffff);
+    const whiteBackground = new Jimp(
+      logo.bitmap.width,
+      logo.bitmap.height,
+      0xffffffff
+    );
     whiteBackground.composite(logo, 0, 0);
 
     // Posiciona el logo en el centro del QR
@@ -32,7 +42,11 @@ const generateQRWithLogo = async (text, logoPath) => {
     });
 
     // Devuelve el QR con el logo como base64
-    return await qrImage.getBase64Async(Jimp.MIME_PNG);
+    const qrBase64 = await qrImage.getBase64Async(Jimp.MIME_PNG);
+    if (!qrBase64) {
+      throw new Error("Failed to convert QR image to Base64");
+    }
+    return qrBase64;
   } catch (err) {
     console.error(err);
     throw new Error("Error generating QR code with logo");
