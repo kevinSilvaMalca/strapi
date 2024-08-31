@@ -16,7 +16,7 @@ module.exports = createCoreController('api::contact.contact', ({ strapi }) => ({
     // Configurar el correo electrónico
     const emailOptions = {
       to: contact.attributes.email,
-      from: 'thetriplethree@innvortex.com', // Cambia esto por tu dirección de correo
+      from: 'admin@thetriplethree333.com', // Cambia esto por tu dirección de correo
       template_id: 'd-10696c49bef845fabeca7c1bd13db33f', // El template ID de SendGrid
       dynamic_template_data: {
         name: contact.attributes.name,
