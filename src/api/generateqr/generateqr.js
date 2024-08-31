@@ -35,26 +35,5 @@ const generateQRWithLogo = async (text, logoPath) => {
 };
 
 module.exports = {
-    'qrcode-generator': {
-      enabled: true,
-      config: {
-        contentTypes: [
-          {
-            uid: 'api::note.note',
-            targetField: 'slug',
-            frontend: {
-              basePath: '/notes',
-            },
-            generateQR: async (note) => {
-              const logoUrl = 'https://admin.thetriplethree333.com/uploads/image_1_548902308c.png';
-              const qrWithLogo = await generateQRWithLogo(
-                `${note.frontend.basePath}/${note.slug}`,
-                logoUrl
-              );
-              return qrWithLogo;
-            },
-          },
-        ],
-      },
-    },
-  };
+  generateQRWithLogo,
+};
