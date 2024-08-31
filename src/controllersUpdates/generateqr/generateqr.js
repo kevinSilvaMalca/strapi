@@ -7,20 +7,23 @@ const generateQRWithLogo = async (text, logoPath) => {
     const qrData = await QRCode.toDataURL(text);
 
     // Carga el QR y el logo en Jimp
-    const qrImage = await Jimp.read(
-      Buffer.from(qrData.split(",")[1], "base64")
-    );
+    const qrImage = await Jimp.read(Buffer.from(qrData.split(",")[1], "base64"));
     const logo = await Jimp.read(logoPath);
 
     // Redimensiona el logo para que sea más pequeño que el QR
-    logo.resize(qrImage.bitmap.width / 4, Jimp.AUTO);
+    const logoMaxSize = qrImage.bitmap.width / 4;
+    logo.resize(logoMaxSize, Jimp.AUTO);
+
+    // Crear un fondo blanco para el logo
+    const whiteBackground = new Jimp(logo.bitmap.width, logo.bitmap.height, 0xffffffff);
+    whiteBackground.composite(logo, 0, 0);
 
     // Posiciona el logo en el centro del QR
-    const x = qrImage.bitmap.width / 2 - logo.bitmap.width / 2;
-    const y = qrImage.bitmap.height / 2 - logo.bitmap.height / 2;
+    const x = qrImage.bitmap.width / 2 - whiteBackground.bitmap.width / 2;
+    const y = qrImage.bitmap.height / 2 - whiteBackground.bitmap.height / 2;
 
     // Componer el logo sobre el QR
-    qrImage.composite(logo, x, y, {
+    qrImage.composite(whiteBackground, x, y, {
       mode: Jimp.BLEND_SOURCE_OVER,
       opacitySource: 1,
       opacityDest: 1,
