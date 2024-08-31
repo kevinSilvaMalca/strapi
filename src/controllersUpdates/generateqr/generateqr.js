@@ -6,6 +6,8 @@ const generateQRWithLogo = async (text, logoPath) => {
     // Genera el código QR como base64
     const qrData = await QRCode.toDataURL(text);
 
+    console.log(logoPath);
+
     // Carga el QR y el logo en Jimp
     const qrImage = await Jimp.read(Buffer.from(qrData.split(",")[1], "base64"));
     const logo = await Jimp.read(logoPath);
