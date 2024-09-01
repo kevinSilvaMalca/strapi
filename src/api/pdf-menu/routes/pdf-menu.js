@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * generateqr router
+ * pdf-menu router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::generateqr.generateqr');
+module.exports = createCoreRouter('api::pdf-menu.pdf-menu');

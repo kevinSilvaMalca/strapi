@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "pdf_menus",
+  "info": {
+    "singularName": "pdf-menu",
+    "pluralName": "pdf-menus",
+    "displayName": "PdfMenu"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FoodMenu": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "CocktailMenu": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

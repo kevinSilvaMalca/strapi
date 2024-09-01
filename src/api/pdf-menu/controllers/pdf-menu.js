@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * generateqr controller
+ * pdf-menu controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::generateqr.generateqr');
+module.exports = createCoreController('api::pdf-menu.pdf-menu');

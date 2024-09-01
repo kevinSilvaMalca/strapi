@@ -24,7 +24,7 @@
     "numberOfPeople": {
       "type": "biginteger"
     },
-    "Date": {
+    "date": {
       "type": "datetime"
     }
   }
