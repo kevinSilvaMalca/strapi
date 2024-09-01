@@ -794,12 +794,15 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'Category';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
+    active: Attribute.Boolean;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -832,7 +835,7 @@ export interface ApiContactContact extends Schema.CollectionType {
     name: Attribute.String;
     email: Attribute.Email;
     phone: Attribute.String;
-    numberOfPeople: Attribute.Integer;
+    numberOfPeople: Attribute.BigInteger;
     date: Attribute.DateTime;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -847,6 +850,65 @@ export interface ApiContactContact extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFlayerFlayer extends Schema.SingleType {
+  collectionName: 'flayers';
+  info: {
+    singularName: 'flayer';
+    pluralName: 'flayers';
+    displayName: 'flayers';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::flayer.flayer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::flayer.flayer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeHome extends Schema.CollectionType {
+  collectionName: 'homes';
+  info: {
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'Home';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    PrincipalHome: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    TittlePrincipal: Attribute.String;
+    about_me: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    tittle_about_me: Attribute.String;
+    text_area_about_me: Attribute.String;
+    image_left: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image_right: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -873,11 +935,73 @@ export interface ApiMenuMenu extends Schema.CollectionType {
       'oneToOne',
       'api::category.category'
     >;
+    FileMenu: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPdfMenuPdfMenu extends Schema.SingleType {
+  collectionName: 'pdf_menus';
+  info: {
+    singularName: 'pdf-menu';
+    pluralName: 'pdf-menus';
+    displayName: 'PdfMenu';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    FoodMenu: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    CocktailMenu: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pdf-menu.pdf-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pdf-menu.pdf-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSubscriptionSubscription extends Schema.CollectionType {
+  collectionName: 'subscriptions';
+  info: {
+    singularName: 'subscription';
+    pluralName: 'subscriptions';
+    displayName: 'subscription';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    email: Attribute.Email & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -902,7 +1026,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
+      'api::flayer.flayer': ApiFlayerFlayer;
+      'api::home.home': ApiHomeHome;
       'api::menu.menu': ApiMenuMenu;
+      'api::pdf-menu.pdf-menu': ApiPdfMenuPdfMenu;
+      'api::subscription.subscription': ApiSubscriptionSubscription;
     }
   }
 }
