@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "url_permantlies",
+  "info": {
+    "singularName": "url-permantly",
+    "pluralName": "url-permantlies",
+    "displayName": "url-permantly"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "unique": true
+    },
+    "file": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    }
+  }
+}

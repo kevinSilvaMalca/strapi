@@ -1006,6 +1006,38 @@ export interface ApiSubscriptionSubscription extends Schema.CollectionType {
   };
 }
 
+export interface ApiUrlPermantlyUrlPermantly extends Schema.CollectionType {
+  collectionName: 'url_permantlies';
+  info: {
+    singularName: 'url-permantly';
+    pluralName: 'url-permantlies';
+    displayName: 'url-permantly';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.String & Attribute.Unique;
+    file: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::url-permantly.url-permantly',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::url-permantly.url-permantly',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1031,6 +1063,7 @@ declare module '@strapi/types' {
       'api::menu.menu': ApiMenuMenu;
       'api::pdf-menu.pdf-menu': ApiPdfMenuPdfMenu;
       'api::subscription.subscription': ApiSubscriptionSubscription;
+      'api::url-permantly.url-permantly': ApiUrlPermantlyUrlPermantly;
     }
   }
 }
