@@ -17,9 +17,6 @@
       "type": "string",
       "unique": true
     },
-    "label": {
-      "type": "string"
-    },
     "file": {
       "type": "media",
       "multiple": true,
