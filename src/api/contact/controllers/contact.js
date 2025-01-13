@@ -17,7 +17,7 @@ module.exports = createCoreController('api::contact.contact', ({ strapi }) => ({
     const emailOptions = {
       to: contact.attributes.email,
       from: 'admin@thetriplethree333.com', // Cambia esto por tu dirección de correo
-      bcc: ['thetriplethree333.brunov@outlook.com', 'jvaldiviezo@thetriplethree333.com'], // Añade las direcciones de correo para las copias ocultas
+      bcc: ['thetriplethree333ct@outlook.com', 'kevin.silva.095@gmail.com'], // Añade las direcciones de correo para las copias ocultas
       template_id: 'd-10696c49bef845fabeca7c1bd13db33f', // El template ID de SendGrid
       dynamic_template_data: {
         name: contact.attributes.name,

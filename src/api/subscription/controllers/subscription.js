@@ -19,7 +19,7 @@ module.exports = createCoreController('api::subscription.subscription', ({ strap
         const emailOptions = {
           to: subscription.attributes.email,
           from: 'admin@thetriplethree333.com', // Cambia esto por tu dirección de correo
-          bcc: ['thetriplethree333.brunov@outlook.com', 'jvaldiviezo@thetriplethree333.com', 'admin@thetriplethree333.com'], // Añade las direcciones de correo para las copias ocultas
+          bcc: ['thetriplethree333ct@outlook.com', 'kevin.silva.095@gmail.com'], // Añade las direcciones de correo para las copias ocultas
           template_id: 'd-d475e4805e1f4fa4ac82633d1b9d5224', // El template ID de SendGrid
           dynamic_template_data: {
             email: subscription.attributes.email
