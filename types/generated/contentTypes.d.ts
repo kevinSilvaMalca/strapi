@@ -1019,6 +1019,7 @@ export interface ApiUrlPermantlyUrlPermantly extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.String & Attribute.Unique;
+    label: Attribute.String;
     file: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
