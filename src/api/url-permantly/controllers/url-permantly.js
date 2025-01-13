@@ -17,6 +17,7 @@ module.exports = createCoreController('api::url-permantly.url-permantly', ({ str
       return ctx.notFound('URL not found');
     }
 
-    ctx.send(entity);
+    const composedUrl = `${entity.label}/${entity.slug}`;
+    ctx.send({ ...entity, composedUrl });
   },
 }));
