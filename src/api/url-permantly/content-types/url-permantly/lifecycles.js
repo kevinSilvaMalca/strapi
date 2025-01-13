@@ -6,13 +6,15 @@ module.exports = {
   beforeCreate(event) {
     const { data } = event.params;
     if (!data.slug) {
-      data.slug = uuidv4(); // Genera un UUID único como slug
+      data.slug = uuidv4();
+      data.label = `${strapi.config.server.url}/api/url-permantly/${data.slug}`;
     }
   },
   beforeUpdate(event) {
     const { data } = event.params;
     if (!data.slug) {
-      data.slug = uuidv4(); // Mantén un slug válido si falta
+      data.slug = uuidv4();
+      data.label = `${strapi.config.server.url}/api/url-permantly/${data.slug}`;
     }
   },
 };
