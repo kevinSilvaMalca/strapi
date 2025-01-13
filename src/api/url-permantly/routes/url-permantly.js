@@ -1,23 +1,24 @@
 'use strict';
 
-const { createCoreRouter } = require('@strapi/strapi').factories;
-
-module.exports = createCoreRouter('api::url-permantly.url-permantly', {
-  config: {
-    findBySlug: {
-      policies: [],
-      middlewares: [],
-    },
-  },
+module.exports = {
   routes: [
     {
       method: 'GET',
+      path: '/url-permantly',
+      handler: 'url-permantly.find',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
+    {
+      method: 'GET',
       path: '/url-permantly/:slug',
-      handler: 'api::url-permantly.url-permantly.findBySlug',
+      handler: 'url-permantly.findBySlug',
       config: {
         policies: [],
         middlewares: [],
       },
     },
   ],
-});
+};
