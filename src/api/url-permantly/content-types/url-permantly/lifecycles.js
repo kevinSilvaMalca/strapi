@@ -7,14 +7,14 @@ module.exports = {
     const { data } = event.params;
     if (!data.slug) {
       data.slug = uuidv4();
-      data.label = `${strapi.config.server.url}/api/url-permantly/${data.slug}`;
+      data.urlqrpermanent = `https://qr.thetriplethree333.com/generate-qr?data=${strapi.config.server.url}/v1/url-permantly/${data.slug}`;
     }
   },
   beforeUpdate(event) {
     const { data } = event.params;
     if (!data.slug) {
       data.slug = uuidv4();
-      data.label = `${strapi.config.server.url}/api/url-permantly/${data.slug}`;
+      data.urlqrpermanent = `https://qr.thetriplethree333.com/generate-qr?data=${strapi.config.server.url}/v1/url-permantly/${data.slug}`;
     }
   },
 };

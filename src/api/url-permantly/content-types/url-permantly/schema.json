@@ -20,6 +20,9 @@
     },
     "fileUrl": {
       "type": "string"
+    },
+    "urlqrpermanent": {
+      "type": "string"
     }
   }
 }
