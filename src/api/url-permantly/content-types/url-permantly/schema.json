@@ -4,7 +4,8 @@
   "info": {
     "singularName": "url-permantly",
     "pluralName": "url-permantlies",
-    "displayName": "url-permantly"
+    "displayName": "url-permantly",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,13 +18,16 @@
       "type": "string",
       "unique": true
     },
-    "label": {
-      "type": "string"
-    },
-    "file": {
+    "fileUrl": {
       "type": "media",
       "multiple": true,
-      "allowedTypes": ["images", "files", "videos", "audios"]
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

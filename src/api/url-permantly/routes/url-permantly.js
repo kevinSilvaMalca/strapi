@@ -14,7 +14,7 @@ module.exports = {
     {
       method: 'GET',
       path: '/url-permantly/:slug',
-      handler: 'url-permantly.findBySlug',
+      handler: 'url-permantly.redirect',
       config: {
         policies: [],
         middlewares: [],

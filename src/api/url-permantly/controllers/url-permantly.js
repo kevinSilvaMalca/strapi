@@ -53,4 +53,34 @@ module.exports = createCoreController('api::url-permantly.url-permantly', ({ str
       ctx.throw(500, 'Internal Server Error');
     }
   },
+
+  async redirect(ctx) {
+    const { slug } = ctx.params;
+    console.log('slug:', slug); // Log para verificar el slug
+
+    try {
+      const entity = await strapi.db.query('api::url-permantly.url-permantly').findOne({
+        where: { slug },
+      });
+
+      console.log('entity:', entity); // Log para verificar la entidad
+
+      if (!entity) {
+        return ctx.notFound('URL not found');
+      }
+
+      // Suponiendo que la URL del archivo está almacenada en el campo `fileUrl` de la entidad
+      const fileUrl = entity.fileUrl;
+
+      if (!fileUrl) {
+        return ctx.notFound('File URL not found');
+      }
+
+      // Redirigir a la URL del archivo
+      ctx.redirect(fileUrl);
+    } catch (error) {
+      console.error('Error fetching entity:', error); // Log de errores
+      ctx.throw(500, 'Internal Server Error');
+    }
+  },
 }));
